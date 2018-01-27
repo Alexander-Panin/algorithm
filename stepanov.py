@@ -11,14 +11,13 @@ def power(x, n, op):
         n >>= 1
     return result
 
-def func0(x,y):
-    k = 1000000
-    return [ (x[0] * y[0] + x[1] * y[2]) % k, (x[0] * y[1] + x[1] * y[3]) % k,
-             (x[2] * y[0] + x[3] * y[2]) % k, (x[2] * y[1] + x[3] * y[3]) % k]
+def func(x,y):
+    return [ (x[0] * y[0] + x[1] * y[2]), (x[0] * y[1] + x[1] * y[3]),
+             (x[2] * y[0] + x[3] * y[2]), (x[2] * y[1] + x[3] * y[3])]
 
 def fib_power(n):
     if n == 0: return 0
-    else: return power([1,1,1,0], n-1, func0)[0]
+    else: return power([1,1,1,0], n-1, func)[0]
 
 def fib(n):
     if n >= 0: return fib_power(n)
@@ -30,4 +29,3 @@ def solution(n):
 
 print fib(36), '=', 930352
 print fib(8), '=', 21
-print fib(1000000001), '=', 937501
